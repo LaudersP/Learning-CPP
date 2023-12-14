@@ -1,0 +1,3 @@
+﻿F:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (..\..\temp\visual_studio2022\%(Configuration)\) contains files shared from another project (Application.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  main.cpp
+  Application.vcxproj -> C:\Users\Parker Lauders\Desktop\Learning C++\GPA_Calculator\bin\visual_studio2022\Debug\GPA_Calculator.exe
