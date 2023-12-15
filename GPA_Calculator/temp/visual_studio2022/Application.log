@@ -1,2 +1,3 @@
 ﻿  main.cpp
+C:\Users\Parker Lauders\Desktop\Learning C++\GPA_Calculator\src\main.cpp(280,26): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
   Application.vcxproj -> C:\Users\Parker Lauders\Desktop\Learning C++\GPA_Calculator\bin\visual_studio2022\Debug\GPA_Calculator.exe
