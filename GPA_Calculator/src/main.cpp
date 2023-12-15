@@ -1,5 +1,8 @@
 #include <iostream>
 #include <fstream>
+#include <string>
+
+#define GRADE_WEIGHT_FILE "..\\..\\temp\\grade_weight.txt"
 
 int main()
 {
@@ -9,7 +12,6 @@ int main()
 
     // Array to hold pointers to the 
     float* gradeWeight[13] = { &apValue, &aVal, &amVal, &bpVal, &bVal, &bmVal, &cpVal, &cVal, &cmVal, &dpVal, &dVal, &dmVal, &fVal };
-    bool filled = false;
 
     // --- Global Drive Variables ---
     bool done = false;
@@ -31,7 +33,7 @@ int main()
 
         // Act on user input
         switch (userInput) {
-        case 1:
+        case 1: {
             // Print selection title
             std::cout << "\nGrade Weight\n";
             std::cout << "------------------------\n";
@@ -79,60 +81,55 @@ int main()
                     }
                 }
             }
-            filled = true;
+
+            // Open output file
+            std::ofstream gradeWeightFile(GRADE_WEIGHT_FILE);
+
+            // Check if the file is successfully opened
+            if (gradeWeightFile.is_open()) {
+                // Output grade weight values
+                for (int i = 0; i < 13; i++) {
+                    gradeWeightFile << *gradeWeight[i] << "\n";
+                }
+            }
+            else {
+                // Error of opening
+                std::cout << "ERROR) Unable to output grade weight values!\n";
+            }
+
+            // Close file
+            gradeWeightFile.close();
             std::cout << "------------------------\n";
 
             break;
-
-        case 2:
+        }
+        case 2: {
             // Print selection title
             std::cout << "\nCurrent Grade Weight\n";
             std::cout << "------------------------\n";
 
             // Check if filled
-            if (filled) {
-                // Reset globalIndex
-                globalIndex = 0;
+            std::ifstream gradeWeightFile(GRADE_WEIGHT_FILE);
+            std::string line;
 
-                // Loop through letter grades
-                for (int i = 0; i <= 5; i++) {
-                    // Skip E as it is not used as a letter grade
-                    if (i == 4) {
-                        continue;
-                    }
+            if (gradeWeightFile.is_open()) {
+                gradeWeightFile >> line;
 
-                    // Print plus, normal, and minus symbols
-                    for (int j = 1; j <= 3; j++) {
-                        // Print the correct F
-                        if (i == 5 && (j == 1 || j == 3)) {
-                            continue;
-                        }
-
-                        // Print appropriate sign
-                        switch (j) {
-                        case 1:
-                            std::cout << static_cast<char>(65 + i) << "+: " << *gradeWeight[globalIndex] << "\n";
-                            globalIndex++;
-                            break;
-                        case 2:
-                            std::cout << " " << static_cast<char>(65 + i) << ": " << *gradeWeight[globalIndex] << "\n";
-                            globalIndex++;
-                            break;
-                        case 3:
-                            std::cout << static_cast<char>(65 + i) << "-: " << *gradeWeight[globalIndex] << "\n";
-                            globalIndex++;
-                            break;
-                        }
+                if (line.empty()) {
+                    std::cout << "ERROR) Enter grade weights first!\n";
+                }
+                else {
+                    while (!line.empty() && !gradeWeightFile.eof()) {
+                        std::cout << line << "\n";
+                        gradeWeightFile >> line;
                     }
                 }
-            }
-            else {
-                std::cout << "ERROR) List is empty, please add grade weight!\n";
             }
 
             std::cout << "------------------------\n";
 
             break;
+        }
         case 6:
             done = true;
             break;
