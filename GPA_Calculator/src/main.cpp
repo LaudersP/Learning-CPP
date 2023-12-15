@@ -3,6 +3,7 @@
 #include <string>
 
 #define GRADE_WEIGHT_FILE "..\\..\\temp\\grade_weight.txt"
+#define GRADE_SCALE_FILE "..\\..\\temp\\grade_scale.txt"
 
 int main()
 {
@@ -24,12 +25,16 @@ int main()
         // ... Loop until valid
         do {
             // Print options
-            std::cout << "\nList\n------------------------\n1. Grade Weight\n2. Current Grade Scale\n6. Exit\n------------------------";
-            std::cout << "\n>>";
+            std::cout << "\nList\n------------------------\n";
+            std::cout << "1. Grade Weight\n";
+            std::cout << "2. Current Grade Scale\n";
+            std::cout << "3. Grade Scale\n";
+            std::cout << "6. Exit\n";
+            std::cout << "------------------------\n>>";
 
             // Get user input
             std::cin >> userInput;
-        } while (userInput != 1 && userInput != 2 && userInput != 6);
+        } while (userInput != 1 && userInput != 2 && userInput != 3 && userInput != 6);
 
         // Act on user input
         switch (userInput) {
@@ -89,7 +94,7 @@ int main()
             if (gradeWeightFile.is_open()) {
                 // Output grade weight values
                 for (int i = 0; i < 13; i++) {
-                    if (i == 13) {
+                    if (i == 12) {
                         gradeWeightFile << *gradeWeight[i];
                     }
                     else {
@@ -175,6 +180,77 @@ int main()
             std::cout << "------------------------\n";
 
             break;
+        }
+        case 3: {
+            // Print selection title
+            std::cout << "\nGrade Scale\n";
+            std::cout << "------------------------\n";
+
+            int ap, a, am, bp, b, bm, cp, c, cm, dp, d, dm, f;
+            int* gradingScale[13] = {&ap, &a, &am, &bp, &b, &bm, &cp, &c, &cm, &dp, &d, &dm, &f};
+            globalIndex = 0;
+            
+            for (int i = 0; i <= 5; i++) {
+                if (i == 4) {
+                    continue;
+                }
+                else if (i == 5) {
+                    std::cout << " " << static_cast<char>(65 + i) << ": ";
+                    std::cin >> *gradingScale[globalIndex];
+                }
+                else {
+                    for (int j = 1; j <= 3; j++) {
+                        switch (j) {
+                        case 1:
+                            std::cout << static_cast<char>(65 + i) << "+: ";
+                            std::cin >> *gradingScale[globalIndex];
+                            globalIndex++;
+                            break;
+                        case 2:
+                            std::cout << " " << static_cast<char>(65 + i) << ": ";
+                            std::cin >> *gradingScale[globalIndex];
+                            globalIndex++;
+                            break;
+                        case 3:
+                            std::cout << static_cast<char>(65 + i) << "-: ";
+                            std::cin >> *gradingScale[globalIndex];
+                            globalIndex++;
+                            break;
+                        }
+                    }
+                }
+                
+            }
+
+            // Open output file
+            std::ofstream gradeScaleFile(GRADE_SCALE_FILE);
+
+            // Check if the file is successfully opened
+            if (gradeScaleFile.is_open()) {
+                // Output grade weight values
+                for (int i = 0; i < 13; i++) {
+                    if (i == 12) {
+                        gradeScaleFile << *gradingScale[i];
+                    }
+                    else {
+                        gradeScaleFile << *gradingScale[i] << "\n";
+                    }
+
+                }
+            }
+            else {
+                // Error of opening
+                std::cout << "ERROR) Unable to output grade weight values!\n";
+            }
+
+            // Close file
+            gradeScaleFile.close();
+
+
+            std::cout << "------------------------\n";
+            for (int i = 0; i < 13; i++) {
+                std::cout << *gradingScale[i] << "\n";
+            }
         }
         case 6:
             done = true;
