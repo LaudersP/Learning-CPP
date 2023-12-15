@@ -4,6 +4,7 @@
 
 #define GRADE_WEIGHT_FILE "..\\..\\temp\\grade_weight.txt"
 #define GRADE_SCALE_FILE "..\\..\\temp\\grade_scale.txt"
+#define CLASS_LIST_FILE "..\\..\\temp\\class_list.txt"
 
 void printGradeItems(const std::string filepath) {
     // --- Check if filled ---
@@ -56,9 +57,6 @@ void printGradeItems(const std::string filepath) {
                 }
             }
         }
-    }
-    else {
-        std::cout << "ERROR) Enter grade scale first!\n";
     }
 }
 
@@ -166,12 +164,16 @@ int main()
             std::cout << "2. Current Grade Weight\n";
             std::cout << "3. Grade Scale\n";
             std::cout << "4. Current Grade Scale\n";
-            std::cout << "6. Exit\n";
+            std::cout << "5. Add Class\n";
+            std::cout << "6. Print Class List\n";
+            std::cout << "7. Get GPA\n";
+            std::cout << "8. Reset\n";
+            std::cout << "9. Exit\n";
             std::cout << "------------------------\n>>";
 
             // Get user input
             std::cin >> userInput;
-        } while (userInput != 1 && userInput != 2 && userInput != 3 && userInput != 4 && userInput != 6);
+        } while (userInput < 1 || userInput > 9);
 
         // Act on user input
         switch (userInput) {
@@ -215,7 +217,134 @@ int main()
 
             break;
         }
-        case 6:
+        case 5: {
+            // Print selection title
+            std::cout << "\nAdd Class\n";
+            std::cout << "------------------------\n";
+
+            // Variables for holding data values
+            std::string classCode;
+            bool codeValid = true;
+            int creditHours = 0;
+            float grade = 0.0;
+
+            // Get the 'classCode'
+            std::cout << "Class Code: ";
+
+            // Get class code
+            std::cin >> classCode;
+
+            // Check that the 'classCode' correct length
+            if (classCode.length() == 8) {
+                // Loop through each element of 'classCode'
+                for (int i = 0; i < 8; i++) {
+                    // Check that first four elements are letters
+                    if ((i < 4 && !isalpha(classCode[i])) || (i >= 4 && !isdigit(classCode[i]))) {
+                        codeValid = false;
+                        break;
+                    }
+
+                    // Upper case if needed
+                    if (i < 4) {
+                        classCode[i] = std::toupper(classCode[i]);
+                    }
+                }
+            }
+
+            // Cancel operation if code was invalid
+            if (!codeValid) {
+                std::cout << "------------------------\n";
+                std::cout << "ERROR: Invalid class code!\n";
+                break; 
+            }
+
+            // Get credit hours
+            std::cout << "Credit Hours: ";
+            std::cin >> creditHours;
+
+            // Get grade
+            std::cout << "Grade: ";
+            std::cin >> grade;
+
+            std::cout << "------------------------\n";
+
+            // --- Create the Class List File ---
+
+            // Check if the file is empty
+            std::ifstream classListFile(CLASS_LIST_FILE);
+            
+            // Go to the end of the file
+            classListFile.seekg(0, std::ios::end);
+
+            // Get the position of the pointer in the file
+            int fileSize = classListFile.tellg();
+
+            // Close file
+            classListFile.close();
+
+            // Act based on if file is filled or not
+            if (fileSize <= 0) {
+                // Open file
+                std::ofstream classListFile(CLASS_LIST_FILE);
+
+                // Check the file is opened
+                if (classListFile.is_open()) {
+                    // Insert data
+                    classListFile << classCode << "," << creditHours << "," << grade;
+                }
+            }
+            else {
+                // Open file in append mode
+                std::ofstream classListFile(CLASS_LIST_FILE, std::ios::app);
+
+                // Check the file is opened
+                if (classListFile.is_open()) {
+                    // Append data
+                    classListFile << "\n" << classCode << "," << creditHours << "," << grade;
+                }
+            }
+
+            // Close the file
+            classListFile.close();
+
+            break;
+        }
+        case 6: {
+            // Print selection title
+            std::cout << "\nPrint Class List\n";
+            std::cout << "------------------------\n";
+
+            // Variables
+            std::string line;
+
+            // Open the class list file
+            std::ifstream classListFile(CLASS_LIST_FILE);
+
+            // Loop through the file
+            while (classListFile >> line) {
+                std::cout << "Class: " << line[0] << line[1] << line[2] << line[3] << line[4] << line[5] << line[6] << line[7] << "\n";
+                std::cout << "hours: " << line[9] << "\n";
+                std::cout << "Grade: " << line[11] << "\n\n";
+            }
+
+            classListFile.close();
+
+            std::cout << "------------------------\n";
+            break;
+        }
+        case 7:
+            // Print selection title
+            std::cout << "\nGet GPA\n";
+            std::cout << "------------------------\n";
+
+
+
+            std::cout << "------------------------\n";
+            break;
+        case 8: {
+
+        }
+        case 9:
             done = true;
             break;
         }
