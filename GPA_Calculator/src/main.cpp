@@ -89,7 +89,13 @@ int main()
             if (gradeWeightFile.is_open()) {
                 // Output grade weight values
                 for (int i = 0; i < 13; i++) {
-                    gradeWeightFile << *gradeWeight[i] << "\n";
+                    if (i == 13) {
+                        gradeWeightFile << *gradeWeight[i];
+                    }
+                    else {
+                        gradeWeightFile << *gradeWeight[i] << "\n";
+                    }
+                    
                 }
             }
             else {
@@ -108,22 +114,62 @@ int main()
             std::cout << "\nCurrent Grade Weight\n";
             std::cout << "------------------------\n";
 
-            // Check if filled
+            // --- Check if filled ---
             std::ifstream gradeWeightFile(GRADE_WEIGHT_FILE);
             std::string line;
 
+            // Check if file properly opens
             if (gradeWeightFile.is_open()) {
+                // Grab a line for check
                 gradeWeightFile >> line;
 
+                // Check if the file has content
                 if (line.empty()) {
+                    // Empty file
                     std::cout << "ERROR) Enter grade weights first!\n";
                 }
                 else {
+                    // Reset globalIndex
+                    globalIndex = 0;
+
+                    // Loop through file
                     while (!line.empty() && !gradeWeightFile.eof()) {
-                        std::cout << line << "\n";
-                        gradeWeightFile >> line;
+                        // Loop through letters
+                        for (int i = 0; i <= 5; i++) {
+                            // Skip E
+                            if (i == 4) {
+                                continue;
+                            }
+                            // Responsible to only printing a single F letter
+                            else if (i == 5) {
+                                std::cout << " " << static_cast<char>(65 + i) << ": " << line << "\n";
+                            }
+                            // Print A through D
+                            else {
+                                // Loop from + to - 
+                                for (int j = 1; j <= 3; j++) {
+                                    switch (j) {
+                                    case 1:
+                                        std::cout << static_cast<char>(65 + i) << "+: " << line << "\n";
+                                        break;
+                                    case 2:
+                                        std::cout << " " << static_cast<char>(65 + i) << ": " << line << "\n";
+                                        break;
+                                    case 3:
+                                        std::cout << static_cast<char>(65 + i) << "-: " << line << "\n";
+                                        break;
+                                    }
+                                
+                                    gradeWeightFile >> line;
+                                }
+                            }
+                            
+                        }
                     }
                 }
+            }
+            else {
+                std::cout << "ERROR) Enter grade weights first!\n";
             }
 
             std::cout << "------------------------\n";
