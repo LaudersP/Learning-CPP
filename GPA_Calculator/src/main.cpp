@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
 
 #define GRADE_WEIGHT_FILE "..\\..\\temp\\grade_weight.txt"
 #define GRADE_SCALE_FILE "..\\..\\temp\\grade_scale.txt"
@@ -19,7 +20,7 @@ void printGradeItems(const std::string filepath) {
         // Check if the file has content
         if (line.empty()) {
             // Empty file
-            std::cout << "ERROR) Enter grade weights first!\n";
+            std::cout << "ERROR) No data found!\n";
         }
         else {
             // Loop through file
@@ -140,11 +141,24 @@ void inputGradeItems(const std::string filepath) {
         }
     }
     else {
-        std::cout << "ERROR) Unable to ouput values, please try again!\n";
+        std::cout << "ERROR) Unable to ouput data, please try again!\n";
     }
 
     // close file
     outputFile.close();
+}
+
+void resetFile(const std::string FILEPATH) {
+    // Open file
+    std::ofstream file(FILEPATH);
+
+    // Check it is opened
+    if (!file.is_open()) {
+        std::cout << "ERROR) Unable to reset file, please try again!\n";
+    } 
+
+    // Close the file
+    file.close();
 }
 
 int main()
@@ -271,6 +285,7 @@ int main()
             // --- Create the Class List File ---
 
             // Check if the file is empty
+            // Open file
             std::ifstream classListFile(CLASS_LIST_FILE);
             
             // Go to the end of the file
@@ -320,11 +335,46 @@ int main()
             // Open the class list file
             std::ifstream classListFile(CLASS_LIST_FILE);
 
+            // Go to the end of the file
+            classListFile.seekg(0, std::ios::end);
+
+            // Get the position of the pointer in the file
+            int fileSize = classListFile.tellg();
+
+            // Check if files empty
+            if (fileSize <= 0) {
+                std::cout << "ERROR) No data found!\n";
+                std::cout << "------------------------\n";
+                break;
+            }
+
+            // Clear flag from end of the file
+            classListFile.clear();
+
+            // Move to the beginning
+            classListFile.seekg(0, std::ios::beg);
+
             // Loop through the file
             while (classListFile >> line) {
-                std::cout << "Class: " << line[0] << line[1] << line[2] << line[3] << line[4] << line[5] << line[6] << line[7] << "\n";
-                std::cout << "hours: " << line[9] << "\n";
-                std::cout << "Grade: " << line[11] << "\n\n";
+                // Create stringsteam from input line
+                std::istringstream ss(line);
+
+                // Variables to hold data
+                std::string classCode, hours, grade;
+
+                // Read and store class code
+                std::getline(ss, classCode, ',');
+
+                // Read and store hours
+                std::getline(ss, hours, ',');
+
+                // Read and store grade
+                std::getline(ss, grade, ',');
+
+                // Print data
+                std::cout << "Class: " << classCode << "\n";
+                std::cout << "Hours: " << hours << "\n";
+                std::cout << "Grade: " << grade << "\n\n";
             }
 
             classListFile.close();
@@ -332,17 +382,281 @@ int main()
             std::cout << "------------------------\n";
             break;
         }
-        case 7:
+        case 7: {
             // Print selection title
             std::cout << "\nGet GPA\n";
             std::cout << "------------------------\n";
 
+            // Variable to hold the data
+            std::string line;
+            float data;
 
+            // Array to hold grade weight values
+            float gradeWeights[13];
+
+            // Array to hold grade scale minimum values
+            float gradeScale[13];
+
+            // --- Grab grade weights ---
+            // Open the file
+            std::ifstream gradeWeightFile(GRADE_WEIGHT_FILE);
+
+            // Check if the file is open
+            if (gradeWeightFile.is_open()) {
+                // Loop through the file
+                for (int i = 0; i < 13; i++) {
+                    // Grab data
+                    gradeWeightFile >> data;
+
+                    // Set data into array
+                    gradeWeights[i] = data;
+                }
+            }
+
+            // Close file
+            gradeWeightFile.close();
+
+            // --- Grab grade scale ---
+            // Open the file
+            std::ifstream gradeScaleFile(GRADE_SCALE_FILE);
+
+            // Check if the file is open
+            if (gradeScaleFile.is_open()) {
+                // Loop through the file
+                for (int i = 0; i < 13; i++) {
+                    // Grab data
+                    gradeScaleFile >> data;
+
+                    // Set data into array
+                    gradeScale[i] = data;
+                }
+            }
+
+            // Close the file
+            gradeScaleFile.close();
+
+            // --- Get number of classes ---
+            // Variables
+            int lineCount = 0;
+
+            // Open the file
+            std::ifstream classListFile(CLASS_LIST_FILE);
+
+            // Check if the file is open
+            if (classListFile.is_open()) {
+                // Scan through the file
+                while (classListFile >> line) {
+                    lineCount++;
+                }
+            }
+
+            // Check if the class list is empty
+            if (lineCount == 0) {
+                std::cout << "ERROR) No data found!\n------------------------\n";
+                break;
+            }
+            
+            // --- Get class based data ---
+            // Allocate memory for an array to hold class credit hours
+            float* classHours = new float[lineCount];
+
+            // Allocate memory for an array to hold class grade
+            float* classGrades = new float[lineCount];
+
+            // Clear flag from end of the file
+            classListFile.clear();
+
+            // Move to the beginning
+            classListFile.seekg(0, std::ios::beg);
+
+            // Loop through the 'classListFile' to grab data
+            for (int i = 0; i < lineCount; i++) {
+                // Grab data line
+                classListFile >> line;
+
+                // Create stringsteam from input line
+                std::istringstream ss(line);
+
+                // Variables to hold data
+                std::string classCode, hours, grade;
+
+                // Read and store class code
+                std::getline(ss, classCode, ',');
+
+                // Read and store hours
+                std::getline(ss, hours, ',');
+
+                // Read and store grade
+                std::getline(ss, grade, ',');
+
+                // Convert strings to floats
+                classHours[i] = std::stof(hours);
+                classGrades[i] = std::stof(grade);
+            }
+
+            // --- Calculate total quality points ---
+            // Variable for keeping running total of quality points
+            float qualityPoints = 0;
+
+            for (int i = 0; i < lineCount; i++) {
+                if (classGrades[i] >= gradeScale[0]) {
+                    qualityPoints += classHours[i] * gradeWeights[0];
+                }
+                else if (classGrades[i] >= gradeScale[1]) {
+                    qualityPoints += classHours[i] * gradeWeights[1];
+                }
+                else if (classGrades[i] >= gradeScale[2]) {
+                    qualityPoints += classHours[i] * gradeWeights[2];
+                }
+                else if (classGrades[i] >= gradeScale[3]) {
+                    qualityPoints += classHours[i] * gradeWeights[3];
+                }
+                else if (classGrades[i] >= gradeScale[4]) {
+                    qualityPoints += classHours[i] * gradeWeights[4];
+                }
+                else if (classGrades[i] >= gradeScale[5]) {
+                    qualityPoints += classHours[i] * gradeWeights[5];
+                }
+                else if (classGrades[i] >= gradeScale[6]) {
+                    qualityPoints += classHours[i] * gradeWeights[6];
+                }
+                else if (classGrades[i] >= gradeScale[7]) {
+                    qualityPoints += classHours[i] * gradeWeights[7];
+                }
+                else if (classGrades[i] >= gradeScale[8]) {
+                    qualityPoints += classHours[i] * gradeWeights[8];
+                }
+                else if (classGrades[i] >= gradeScale[9]) {
+                    qualityPoints += classHours[i] * gradeWeights[9];
+                }
+                else if (classGrades[i] >= gradeScale[10]) {
+                    qualityPoints += classHours[i] * gradeWeights[10];
+                }
+                else if (classGrades[i] >= gradeScale[11]) {
+                    qualityPoints += classHours[i] * gradeWeights[11];
+                }
+                else if (classGrades[i] >= gradeScale[12]) {
+                    qualityPoints += classHours[i] * gradeWeights[12];
+                }
+            }
+
+            // --- Calculate total hours ---
+            // Variable to hold total class hours
+            float totalHours = 0;
+
+            // Add hours together
+            for (int i = 0; i < lineCount; i++) {
+                totalHours += classHours[i];
+            }
+
+            // --- Calculate GPA --- 
+            float GPA = qualityPoints / totalHours;
+
+            // Print GPA
+            std::cout << "GPA: " << GPA << "\n";
 
             std::cout << "------------------------\n";
-            break;
-        case 8: {
 
+            // Deallocate memory for classHours
+            delete[] classHours;
+
+            // Deallocate memory for classGrade
+            delete[] classGrades;
+
+            break;
+        }
+        case 8: {
+            // Get user input for list options
+            // ... Loop until valid
+            do {
+                // Print options
+                std::cout << "\nReset\n------------------------\n";
+                std::cout << "1. Grade Weight\n";
+                std::cout << "2. Grade Scale\n";
+                std::cout << "3. Class List\n";
+                std::cout << "4. Reset All\n";
+                std::cout << "9. Return\n";
+                std::cout << "------------------------\n>>";
+
+                // Get user input
+                std::cin >> userInput;
+            } while (userInput != 1 && userInput != 2 && userInput != 3 && userInput != 4 && userInput != 9);
+
+            // Confirm decision
+            char confirm;
+            if (userInput != 9) {
+                std::cout << "Confirm reset of ";
+            }
+
+            // Act on user input
+            switch (userInput) {
+            case 1: {
+                // Finish confirm message
+                std::cout << "GRADE WEIGHT (y/n): ";
+                
+                // Get input
+                std::cin >> confirm;
+
+                // Act on input
+                if (confirm == 'y') {
+                    // Reset file
+                    resetFile(GRADE_WEIGHT_FILE);
+                }
+
+                break;
+            }
+            case 2: {
+                // Finish confirm message
+                std::cout << "GRADE SCALE (y/n): ";
+
+                // Get input
+                std::cin >> confirm;
+
+                // Act on input
+                if (confirm == 'y') {
+                    // Reset file
+                    resetFile(GRADE_SCALE_FILE);
+                }
+
+                break;
+            }
+            case 3: {
+                // Finish confirm message
+                std::cout << "CLASS LIST (y/n): ";
+
+                // Get input
+                std::cin >> confirm;
+
+                // Act on input
+                if (confirm == 'y') {
+                    // Reset file
+                    resetFile(CLASS_LIST_FILE);
+                }
+
+                break;
+            }
+            case 4: {
+                // Finish confirm message
+                std::cout << "ALL (y/n): ";
+
+                // Get input
+                std::cin >> confirm;
+
+                // Act on input
+                if (confirm == 'y') {
+                    // Reset files
+                    resetFile(GRADE_SCALE_FILE);
+                    resetFile(GRADE_WEIGHT_FILE);
+                    resetFile(CLASS_LIST_FILE);
+                }
+
+                break;
+            }
+            case 9:
+                break;
+            }
+
+            break;
         }
         case 9:
             done = true;
