@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1702923888 source:c:\users\parker lauders\desktop\learning c++\rock_paper_scissor\src\application.cpp
+	<iostream>
+	"utilities.hpp"
+
+1702923255 c:\users\parker lauders\desktop\learning c++\rock_paper_scissor\include\utilities.hpp
+	<cstdlib>
+	<ctime>
+	<iostream>
+
+1702924056 source:c:\users\parker lauders\desktop\learning c++\rock_paper_scissor\src\utilities.cpp
+	"utilities.hpp"
+
