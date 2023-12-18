@@ -1,28 +1,62 @@
-﻿  titles.cpp
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(25,32): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(25,27): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(25,22): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(53,32): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(53,22): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(60,47): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(63,40): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(63,30): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(64,40): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(64,30): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(85,40): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(85,30): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(89,40): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(89,30): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(90,40): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(90,35): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(90,30): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(111,32): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(111,22): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(120,40): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(120,30): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(132,40): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(132,30): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(135,40): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(135,35): warning C4309: 'argument': truncation of constant value
-C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\titles.cpp(135,30): warning C4309: 'argument': truncation of constant value
-  Application.vcxproj -> C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\bin\visual_studio2022\Debug\Application.exe
+﻿  Application.cpp
+  utilities.cpp
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(25,32): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(25,27): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(25,22): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(56,32): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(56,22): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(63,47): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(66,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(66,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(67,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(67,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(88,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(88,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(92,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(92,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(93,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(93,35): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(93,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(117,32): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(117,22): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(126,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(126,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(138,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(138,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(141,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(141,35): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(141,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(198,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(198,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(216,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(216,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(219,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(219,35): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(219,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(258,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(258,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(276,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(276,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(279,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(279,35): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(279,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(318,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(318,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(336,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(336,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(339,40): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(339,35): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(339,30): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(359,32): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(359,22): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(375,32): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(375,22): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(378,32): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(378,27): warning C4309: 'argument': truncation of constant value
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(378,22): warning C4309: 'argument': truncation of constant value
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\src\utilities.cpp(175): warning C4715: 'GetComputerChoice': not all control paths return a value
+  All 29 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Application.vcxproj -> C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\bin\visual_studio2022\Release\Application.exe

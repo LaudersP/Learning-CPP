@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\bin\visual_studio2022\Debug\Application.exe</FullPath>
+      <FullPath>C:\Users\Parker Lauders\Desktop\Learning C++\Rock_Paper_Scissor\bin\visual_studio2022\Release\Application.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
