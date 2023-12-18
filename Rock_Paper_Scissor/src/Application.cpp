@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <cctype>
 #include "titles.hpp"
 
 // --- OS decleration for terminal clearing ---
@@ -17,15 +18,38 @@
 
 // Main
 int main() {
-    // Clear terminal
-    CLEAR;
-
-    PrintTitle();
+    using std::cin;
+    using std::toupper;
 
     // Loop status
     bool done = false;
+    char userInputChar = NULL;
 
-    PrintMainMenu();
+    while (!done) {
+        if (userInputChar == NULL) {
+            do {
+                // Clear terminal
+                CLEAR;
+
+                // Print "graphics"
+                PrintTitle();
+                PrintMainMenu();
+
+                cin >> userInputChar;
+                userInputChar = toupper(userInputChar);
+            } while (userInputChar != 'Y' && userInputChar != 'N');
+        } 
+        else if (userInputChar == 'Y') {
+            // Clear terminal
+            CLEAR;
+
+            // Game code here...
+        }
+        else if (userInputChar == 'N') {
+            done = true;
+            break;
+        }
+    }
 
     return 0;
 }
