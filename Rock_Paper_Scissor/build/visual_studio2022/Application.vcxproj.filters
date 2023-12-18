@@ -18,7 +18,7 @@
     <ClCompile Include="..\..\src\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="title.cpp">
+    <ClCompile Include="..\..\src\titles.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Application.cpp" />
-    <ClCompile Include="title.cpp" />
+    <ClCompile Include="..\..\src\titles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\titles.hpp" />
