@@ -1,7 +1,5 @@
 #include <iostream>
-#include <cstdlib>
-#include <cctype>
-#include "titles.hpp"
+#include "utilities.hpp"
 
 // --- OS decleration for terminal clearing ---
 #define WINDOWS
@@ -24,7 +22,6 @@ int main() {
     // Loop status
     bool done = false;
     char userInputChar = NULL;
-    int userInputInt = 0;
 
     while (!done) {
         switch (userInputChar) {
@@ -34,11 +31,48 @@ int main() {
                 CLEAR;
 
                 // Print "graphics"
-                PrintTitle();
                 PrintGameMenu();
 
-                cin >> userInputInt;
-            } while (userInputInt < 1 || userInputInt > 3);
+                cin >> userInputChar;
+                userInputChar = toupper(userInputChar);
+            } while (userInputChar != 'R' && userInputChar != 'P' && userInputChar != 'S');
+
+            char computerChoice = GetComputerChoice();
+
+            // Check for draw
+            if (userInputChar == computerChoice) {
+                // Clear terminal
+                CLEAR;
+
+                // Print "graphics"
+                PrintDraw();
+            }
+            // Check for win
+            else if ((userInputChar == 'R' && computerChoice == 'S') || (userInputChar == 'P' && computerChoice == 'R') || (userInputChar == 'S' && computerChoice == 'P')) {
+                // Clear terminal
+                CLEAR;
+
+                // Print "graphics"
+                PrintWin();
+            }
+            // Lose
+            else {
+                // Clear terminal
+                CLEAR;
+
+                // Print "graphics"
+                PrintLoss();
+            }
+
+            // Ask to play again
+            PrintPlayAgain();
+
+            cin >> userInputChar;
+            userInputChar = toupper(userInputChar);
+
+            if (userInputChar == 'N') {
+                done = true;
+            }
 
             break;
         }
@@ -52,7 +86,6 @@ int main() {
                 CLEAR;
 
                 // Print "graphics"
-                PrintTitle();
                 PrintMainMenu();
 
                 // Get user input and ensure it is uppercase
