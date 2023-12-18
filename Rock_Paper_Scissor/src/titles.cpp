@@ -53,46 +53,94 @@ void PrintMainMenu() {
     PrintLoop(WIDTH, 179, ' ', 179);
 
     // --- Print text --- 
-    for (int i = 0; i < 10; i++) {
-        if (i == 0) {
+    for (int i = 1; i < 11; i++) {
+        switch (i) {
+        case 1:
             cout << PRINT(179) << " WELCOME...";
             PrintLoop((WIDTH - 12), ' ', ' ', 179);
-        }
-        else if (i == 1) {
+            break;
+        case 2:
             PrintLoop(WIDTH, 179, ' ', 179);
             PrintLoop(WIDTH, 179, ' ', 179);
-        }
-        else if (i == 2) {
+            break;
+        case 3:
             cout << PRINT(179) << " RULES                              ";
-        }
-        else if (i == 3) {
+            break;
+        case 4:
             cout << PRINT(179) << " -----------------------------------";
-        }
-        else if (i == 4) {
+            break;
+        case 5:
             cout << PRINT(179) << " ROCK VS SCISSOR  -> ROCK WINS      ";
-        }
-        else if (i == 5) {
+            break;
+        case 6:
             cout << PRINT(179) << " ROCK VS PAPER    -> PAPER WINS     ";
-        }
-        else if (i == 6) {
+            break;
+        case 7:
             cout << PRINT(179) << " PAPER VS SCISSOR -> SCISSOR WINS   ";
-        }
-        else if (i == 7) {
+            break;
+        case 8:
             cout << PRINT(179) << " -----------------------------------";
-        }
-        else if (i == 8) {
+            break;
+        case 9:
             PrintLoop(WIDTH, 179, ' ', 179);
             cout << PRINT(179) << " THINK YOU HAVE WHAT IT TAKES? (Y/N)";
-        }
-        else if (i == 9) {
+            break;
+        case 10:
             PrintLoop(WIDTH, 179, ' ', 179);
             PrintLoop(WIDTH, 192, 196, 217);
             cout << " >> ";
+            break;
         }
 
-        if (i > 1 && i < 9) {
+        // Finish lines
+        if (i > 2 && i < 10) {
             for (int j = 0; j < 54; j++) {
                 if (j == 53) {
+                    cout << PRINT(179) << endl;
+                }
+                else {
+                    cout << " ";
+                }
+            }
+        }
+    }
+}
+
+void PrintGameMenu() {
+    // Print space line
+    PrintLoop(WIDTH, 179, ' ', 179);
+
+    // --- Print text ---
+    for (int i = 1; i < 8; i++) {
+        switch (i) {
+        case 1:
+            cout << PRINT(179) << " CHOOSE WISELY:";
+            break;
+        case 2:
+            PrintLoop(WIDTH, 179, ' ', 179);
+            break;
+        case 3: 
+            cout << PRINT(179) << " (R)OCK        ";
+            break;
+        case 4:
+            cout << PRINT(179) << " (P)APER       ";
+            break;
+        case 5:
+            cout << PRINT(179) << " (S)CISSOR     ";
+            break;
+        case 6:
+            PrintLoop(WIDTH, 179, ' ', 179);
+            break;
+        case 7:
+            PrintLoop(WIDTH, 192, 196, 217);
+            cout << " >> ";
+            break;
+        } 
+
+        // Finish lines
+        if (i != 2 && i < 6) {
+            for (int j = 0; j < 75; j++) {
+                if (j == 74) {
                     cout << PRINT(179) << endl;
                 }
                 else {

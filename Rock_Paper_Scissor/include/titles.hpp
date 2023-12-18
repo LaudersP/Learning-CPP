@@ -9,5 +9,6 @@ using std::endl;
 void PrintLoop(const int width, const char startingChar, const char middleChar, const char endingChar);
 void PrintTitle();
 void PrintMainMenu();
+void PrintGameMenu();
 
 #endif
