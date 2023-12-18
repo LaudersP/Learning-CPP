@@ -24,9 +24,29 @@ int main() {
     // Loop status
     bool done = false;
     char userInputChar = NULL;
+    int userInputInt = 0;
 
     while (!done) {
-        if (userInputChar == NULL) {
+        switch (userInputChar) {
+        case 'Y': {
+            do {
+                // Clear terminal
+                CLEAR;
+
+                // Print "graphics"
+                PrintTitle();
+                PrintGameMenu();
+
+                cin >> userInputInt;
+            } while (userInputInt < 1 || userInputInt > 3);
+
+            break;
+        }
+        case 'N': {
+            done = true;
+            break;
+        }
+        default: {
             do {
                 // Clear terminal
                 CLEAR;
@@ -35,19 +55,13 @@ int main() {
                 PrintTitle();
                 PrintMainMenu();
 
+                // Get user input and ensure it is uppercase
                 cin >> userInputChar;
                 userInputChar = toupper(userInputChar);
             } while (userInputChar != 'Y' && userInputChar != 'N');
-        } 
-        else if (userInputChar == 'Y') {
-            // Clear terminal
-            CLEAR;
 
-            // Game code here...
-        }
-        else if (userInputChar == 'N') {
-            done = true;
             break;
+        }
         }
     }
 
