@@ -23,8 +23,7 @@ int main() {
 	LoginSystem logginUser(databasePath);
 
 	// Create a instance of the LoginSystem class passing the 'databasePath' point
-	// UPDATE: remove the constructor using a pointer and make string
-	// RegisterSystem registorUser(databasePath); 
+	RegisterSystem registorUser(databasePath); 
 	
 
 	// Variable to hold loop status
@@ -33,12 +32,13 @@ int main() {
 	// Variable to hold the users input
 	char userInput;
 
+
+	// Macro function to clear terminal
+	CLEAR;
+
 	while (done == false) {
 		// Main menu
 		do {
-			// Macro function to clear terminal
-			CLEAR;
-
 			std::cout << "OPTIONS\n";
 			std::cout << "-----------------------------------\n";
 			std::cout << "(L)OGGIN\n";
@@ -56,10 +56,10 @@ int main() {
 		case 'L':
 			logginUser.RequestLoggin();
 
-			done = true;
-
 			break;
 		case 'R':
+			registorUser.RequestRegistration();
+
 			break;
 		case 'E':
 			// End program loop
