@@ -31,11 +31,11 @@ void LoginSystem::RequestLoggin() {
 
 	// Check loggin status
 	if (CheckLogginInfo()) {
-		std::cout << "FOUND!\n";
+		std::cout << "LOGIN SUCCESSFUL!\n\n";
 	}
 	else {
-		std::cout << "Incorrect username/password!\n";
-		std::cout << "Please try again or make an account!";
+		std::cout << "INCORRECT USERNAME/PASSWORD!\n";
+		std::cout << "PLEASE TRY AGAIN OR MAKE AN ACCOUNT!\n\n";
 	}
 }
 
@@ -62,7 +62,7 @@ bool LoginSystem::CheckLogginInfo() {
 		}
 	}
 	else {
-		std::cout << "Unable to open!\n";
+		std::cout << "ERROR) Unable to open database!\n";
 	}
 
 	databaseFile.close();
