@@ -1,2 +1,9 @@
-﻿  LoginSystem.cpp
-  Application.vcxproj -> C:\Users\Parker Lauders\Desktop\Learning C++\Login_and_Registration_System\bin\visual_studio2022\Debug\Application.exe
+﻿  Application.cpp
+  LoginSystem.cpp
+  RegisterSystem.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+C:\Users\Parker Lauders\Desktop\Learning C++\Login_and_Registration_System\src\RegisterSystem.cpp(126): warning C4715: 'RegisterSystem::CheckRegistrationInfo': not all control paths return a value
+  All 225 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Application.vcxproj -> C:\Users\Parker Lauders\Desktop\Learning C++\Login_and_Registration_System\bin\visual_studio2022\Release\Application.exe
